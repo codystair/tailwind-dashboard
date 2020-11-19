@@ -61,7 +61,7 @@ class App extends Component {
         render={({ location }) => {
           return (
             <div className="app">
-              <h2>testing...{process.env.PATH_PREFIX}</h2>
+              <h2>testing...{process.env.PUBLIC_URL}</h2>
               <TopBar toggleSidebar={this.toggleSidebar} />
               <div className="flex">
                 <Sidebar
