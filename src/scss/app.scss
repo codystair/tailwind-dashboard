@@ -1,0 +1,13 @@
+.top-bar-container{
+  height: 48px;
+}
+
+.sidebar-container{
+  height: calc(100vh - 48px);
+  max-width: 300px;
+}
+
+.body-container{
+  height: calc(100vh - 48px);
+  box-shadow: inset 1px 1px 22px #0003;
+}
