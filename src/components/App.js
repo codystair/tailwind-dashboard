@@ -66,6 +66,7 @@ class App extends Component {
           <div className="flex">
             <Sidebar sidebarIsShown={this.state.sidebarIsShown} pages={pages} location={location}/>
             <Body>
+              <h2>Test: {process.env.PATH_PREFIX}<h2>
               {pages.map((page, index)=>{
                 return <Route exact path={page.path} key={index} component={page.component} />
               })}

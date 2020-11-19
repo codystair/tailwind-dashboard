@@ -34,7 +34,7 @@ jobs:
           sed -i -e '/^{$/a\' -e '"homepage": "placeholder",' package.json
           sed -i 's/\( *"homepage":\).*/\1 "http:\/\/${{ secrets.AWS_CF_DOMAIN }}\/${{ github.head_ref }}\/${{ github.sha }}",/' package.json
       - name: Build
-        run: npm run build
+        run: PATH_PREFIX=${{ github.head_ref }}/${{ github.sha }} npm run build
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
