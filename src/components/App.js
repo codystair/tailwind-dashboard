@@ -51,11 +51,10 @@ const obj = {
     Accept: "application/vnd.github.v3+json",
   },
 };
-async function repos() => {
+async function repos() {
   const response = await axios.get(url, obj);
-  return repos = response.map((repo) => repo.name);
-};
-
+  return (repos = response.map((repo) => repo.name));
+}
 
 class App extends Component {
   constructor(props) {
