@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../scss/app.scss";
-
+const axios = require("axios");
 import { Route } from "react-router-dom";
 import TopBar from "./TopBar";
 import Sidebar from "./Sidebar";
@@ -44,6 +44,16 @@ const pages = [
   },
 ];
 
+const url = "https://api.github.com/users/codystair/repos";
+const obj = {
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/vnd.github.v3+json",
+  },
+};
+const response = await axios.get(url, obj);
+const repos = response.map((repo) => repo.name);
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -61,6 +71,7 @@ class App extends Component {
         render={({ location }) => {
           return (
             <div className="app">
+              <h2>repos</h2>
               <TopBar toggleSidebar={this.toggleSidebar} />
               <div className="flex">
                 <Sidebar
