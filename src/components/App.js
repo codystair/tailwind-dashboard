@@ -51,7 +51,7 @@ const obj = {
     Accept: "application/vnd.github.v3+json",
   },
 };
-const repos = async function () => {
+async function repos() => {
   const response = await axios.get(url, obj);
   return repos = response.map((repo) => repo.name);
 };
