@@ -10,7 +10,6 @@ import Notifications from "./pages/Notifications";
 import UserProfile from "./pages/UserProfile";
 import Navigation from "./pages/Navigation";
 import Input from "./pages/Input";
-import axios from "axios";
 
 const pages = [
   {
@@ -52,12 +51,6 @@ const obj = {
     Accept: "application/vnd.github.v3+json",
   },
 };
-async function repos() {
-  const response = await axios.get(url, obj);
-  return response.map((repo) => repo.name);
-}
-
-const repoNames = repos();
 
 class App extends Component {
   constructor(props) {
@@ -76,7 +69,6 @@ class App extends Component {
         render={({ location }) => {
           return (
             <div className="app">
-              <h2>{repoNames}</h2>
               <TopBar toggleSidebar={this.toggleSidebar} />
               <div className="flex">
                 <Sidebar
