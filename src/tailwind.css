@@ -590,6 +590,12 @@ textarea {
   font-family: inherit;
 }
 
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
 input::placeholder,
 textarea::placeholder {
   color: inherit;
@@ -611,7 +617,9 @@ table {
 }
 
 .appearance-none {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .bg-fixed {
@@ -5975,11 +5983,15 @@ table {
 }
 
 .select-none {
-  user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
 }
 
 .select-text {
-  user-select: text;
+  -moz-user-select: text;
+   -ms-user-select: text;
+       user-select: text;
 }
 
 .align-baseline {
@@ -6199,7 +6211,9 @@ table {
   }
 
   .sm\:appearance-none {
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
 
   .sm\:bg-fixed {
@@ -11539,11 +11553,15 @@ table {
   }
 
   .sm\:select-none {
-    user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+         user-select: none;
   }
 
   .sm\:select-text {
-    user-select: text;
+    -moz-user-select: text;
+     -ms-user-select: text;
+         user-select: text;
   }
 
   .sm\:align-baseline {
@@ -11764,7 +11782,9 @@ table {
   }
 
   .md\:appearance-none {
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
 
   .md\:bg-fixed {
@@ -17104,11 +17124,15 @@ table {
   }
 
   .md\:select-none {
-    user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+         user-select: none;
   }
 
   .md\:select-text {
-    user-select: text;
+    -moz-user-select: text;
+     -ms-user-select: text;
+         user-select: text;
   }
 
   .md\:align-baseline {
@@ -17329,7 +17353,9 @@ table {
   }
 
   .lg\:appearance-none {
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
 
   .lg\:bg-fixed {
@@ -22669,11 +22695,15 @@ table {
   }
 
   .lg\:select-none {
-    user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+         user-select: none;
   }
 
   .lg\:select-text {
-    user-select: text;
+    -moz-user-select: text;
+     -ms-user-select: text;
+         user-select: text;
   }
 
   .lg\:align-baseline {
@@ -22894,7 +22924,9 @@ table {
   }
 
   .xl\:appearance-none {
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
 
   .xl\:bg-fixed {
@@ -28234,11 +28266,15 @@ table {
   }
 
   .xl\:select-none {
-    user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+         user-select: none;
   }
 
   .xl\:select-text {
-    user-select: text;
+    -moz-user-select: text;
+     -ms-user-select: text;
+         user-select: text;
   }
 
   .xl\:align-baseline {

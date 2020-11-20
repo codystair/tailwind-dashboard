@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../scss/app.scss";
-const axios = require("axios");
+
 import { Route } from "react-router-dom";
 import TopBar from "./TopBar";
 import Sidebar from "./Sidebar";
@@ -10,6 +10,7 @@ import Notifications from "./pages/Notifications";
 import UserProfile from "./pages/UserProfile";
 import Navigation from "./pages/Navigation";
 import Input from "./pages/Input";
+import axios from "axios";
 
 const pages = [
   {
@@ -53,8 +54,10 @@ const obj = {
 };
 async function repos() {
   const response = await axios.get(url, obj);
-  return (repos = response.map((repo) => repo.name));
+  return response.map((repo) => repo.name);
 }
+
+const repoNames = repos();
 
 class App extends Component {
   constructor(props) {
@@ -73,7 +76,7 @@ class App extends Component {
         render={({ location }) => {
           return (
             <div className="app">
-              <h2>{repos()}</h2>
+              <h2>{repoNames}</h2>
               <TopBar toggleSidebar={this.toggleSidebar} />
               <div className="flex">
                 <Sidebar
