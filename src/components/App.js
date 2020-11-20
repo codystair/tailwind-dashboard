@@ -51,7 +51,7 @@ const obj = {
     Accept: "application/vnd.github.v3+json",
   },
 };
-const getRepoNames = async function () => {
+const repos = async function () => {
   const response = await axios.get(url, obj);
   return repos = response.map((repo) => repo.name);
 };
@@ -74,7 +74,7 @@ class App extends Component {
         render={({ location }) => {
           return (
             <div className="app">
-              <h2>repos</h2>
+              <h2>{repos()}</h2>
               <TopBar toggleSidebar={this.toggleSidebar} />
               <div className="flex">
                 <Sidebar
