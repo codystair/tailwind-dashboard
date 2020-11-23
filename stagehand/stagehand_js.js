@@ -2,7 +2,7 @@ window.addEventListener("DOMContentLoaded", function(e) {
   console.log(e);
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker
-      .register("STAGEHAND_PLACEHOLDER")
+      .register("https://STAGEHAND_PLACEHOLDER/stagehand_sw.js")
       .catch((err) => console.error("Service worker registration failed", err));
 
     const iframe = document.querySelector("iframe");
