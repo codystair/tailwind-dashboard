@@ -55,7 +55,7 @@ jobs:
         run: |
           aws s3 cp ./stagehand/stagehand_js.js s3://${{ env.AWS_S3_BUCKET }}/${{ env.DEST_DIR }}/stagehand_js.js
           aws s3 cp ./stagehand/stagehand_index.html s3://${{ env.AWS_S3_BUCKET }}/${{ env.DEST_DIR }}/stagehand_index.html
-          aws s3 cp ./stagehand/stagehand_sw.js s3://${{ env.AWS_S3_BUCKET }}/stagehand_sw.js
+          aws s3 cp ./stagehand/stagehand_sw.js s3://${{ env.AWS_S3_BUCKET }}/${{ env.DEST_DIR }}/stagehand_sw.js
       - name: "Comment PR"
         uses: actions/github-script@v3
         if: github.event_name == 'pull_request'
