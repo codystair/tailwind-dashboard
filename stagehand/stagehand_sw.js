@@ -68,7 +68,7 @@ const handleRequest = async (event) => {
       const signal = controller.signal;
 
       req = new Request(requestedUrl, {
-        mode: "cors",
+        mode: "same-origin",
         signal,
       });
 
