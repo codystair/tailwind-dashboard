@@ -2,7 +2,7 @@ window.addEventListener("DOMContentLoaded", function(e) {
   console.log(e);
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker
-      .register("https://d3t33jqvgjin33.cloudfront.net/stagehand_sw.js")
+      .register("STAGEHAND_PLACEHOLDER")
       .then((reg) => {
         reg.update();
       })
