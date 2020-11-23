@@ -124,10 +124,8 @@ const handleRequest = async (event) => {
       );
 
       const req = new Request(newUrl, {
+        ...event.request,
         mode: "same-origin",
-        cache: event.request.cache,
-        headers: event.request.headers,
-        referrer: event.request.referrer,
       });
 
       console.log("request:", req);
