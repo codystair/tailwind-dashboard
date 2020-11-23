@@ -3,9 +3,6 @@ window.addEventListener("DOMContentLoaded", function(e) {
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker
       .register("STAGEHAND_PLACEHOLDER")
-      .then((reg) => {
-        reg.update();
-      })
       .catch((err) => console.error("Service worker registration failed", err));
 
     const iframe = document.querySelector("iframe");
