@@ -33,8 +33,8 @@ jobs:
         run: npm run build
       - name: Inject routes into stagehand files
         run: |
-          sed -i 's/STAGEHAND_PLACEHOLDER/${{ env.AWS_CF_DOMAIN }}' stagehand/stagehand_js.js
-          sed -i 's/STAGEHAND_PLACEHOLDER/${{ env.AWS_CF_DOMAIN }}/${{ github.head_ref }}\/${{ github.sha }}' stagehand/stagehand_index.html
+          sed -i 's/STAGEHAND_PLACEHOLDER/${{ env.AWS_CF_DOMAIN }}/' stagehand/stagehand_js.js
+          sed -i 's/STAGEHAND_PLACEHOLDER/${{ env.AWS_CF_DOMAIN }}\/${{ github.head_ref }}\/${{ github.sha }}/' stagehand/stagehand_index.html
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
