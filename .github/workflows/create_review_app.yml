@@ -13,9 +13,8 @@ jobs:
       AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
       AWS_CF_DOMAIN: "${{ secrets.AWS_CF_DOMAIN }}"
       BRANCH_NAME: ${{ github.head_ref }}
-      SOURCE_DIR: "public"
+      SOURCE_DIR: "out"
       DEST_DIR: ${{ github.head_ref }}/${{ github.sha }}
-      CI: false
 
     steps:
       - name: Missing AWS Credentials
@@ -29,8 +28,12 @@ jobs:
         run: exit 1
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Setup React
+      - name: Setup Next
         run: npm install
+      - name: Clean out directory
+        run: rm -rf out
+      # - name: Change basePath
+      #   run: sed -i 's/\( *basePath:\).*/\1 "\/${{ github.head_ref }}\/${{ github.sha }}",/' next.config.js
       ####### Uncomment below to add env variables to use during build process #######
       ####### Add \n\ to the end of each secret to start a new line #######
       ####### EXCEPT DO NOT add to the end of the last secret #######
@@ -38,16 +41,12 @@ jobs:
       #   run: echo -e "\
       #     SECRET1=${{ secrets.YOUR_SECRET1 }}\n\
       #     SECRET2=${{ secrets.YOUR_SECRET2 }}" > .env.local
-      - name: Set Hompage
-        run: |
-          sed -i -e '/^{$/a\' -e '"homepage": "placeholder",' package.json
-          sed -i 's/\( *"homepage":\).*/\1 "http:\/\/${{ secrets.AWS_CF_DOMAIN }}\/${{ github.head_ref }}\/${{ github.sha }}",/' package.json
       - name: Build Site
-        run: npm run build
-      - name: Inject route into stagehand script
-        run: sed -i 's/STAGEHAND_PLACEHOLDER/${{ env.AWS_CF_DOMAIN }}/' stagehand/stagehand_js.js
-      - name: Inject route into stagehand index
-        run: sed -i 's/STAGEHAND_PLACEHOLDER/${{ env.AWS_CF_DOMAIN }}\/${{ github.head_ref }}\/${{ github.sha }}/' stagehand/stagehand_index.html
+        run: npm run-script build
+      - name: Inject routes into stagehand files
+        run: |
+          sed -i 's/STAGEHAND_PLACEHOLDER/${{ env.AWS_CF_DOMAIN }}' stagehand/stagehand_js.js
+          sed -i 's/STAGEHAND_PLACEHOLDER/${{ env.AWS_CF_DOMAIN }}/${{ github.head_ref }}\/${{ github.sha }}' stagehand/stagehand_index.html
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
