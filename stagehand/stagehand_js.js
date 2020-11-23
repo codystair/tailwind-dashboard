@@ -3,6 +3,9 @@ window.addEventListener("DOMContentLoaded", function(e) {
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker
       .register("https://d3t33jqvgjin33.cloudfront.net/stagehand_sw.js")
+      .then((reg) => {
+        reg.update();
+      })
       .catch((err) => console.error("Service worker registration failed", err));
 
     const iframe = document.querySelector("iframe");
