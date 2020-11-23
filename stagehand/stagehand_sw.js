@@ -78,7 +78,7 @@ const handleRequest = async (event) => {
       if (!referrerBasePath) console.log(requestedUrl, urlPathMatch);
       requestedUrl += "/" + urlPathMatch[2] || "";
       req = new Request(requestedUrl, {
-        mode: "cors",
+        mode: "same-origin",
         cache: event.request.cache,
         headers: event.request.headers,
         referrer: event.request.referrer,
@@ -106,7 +106,7 @@ const handleRequest = async (event) => {
 
       console.log(newUrl);
       const req = new Request(newUrl, {
-        mode: "cors",
+        mode: "same-origin",
         cache: event.request.cache,
         headers: event.request.headers,
         referrer: event.request.referrer,
@@ -124,7 +124,7 @@ const handleRequest = async (event) => {
       );
 
       const req = new Request(newUrl, {
-        mode: "cors",
+        mode: "same-origin",
         cache: event.request.cache,
         headers: event.request.headers,
         referrer: event.request.referrer,
@@ -140,7 +140,7 @@ const handleRequest = async (event) => {
 
   const req = new Request(event.request.url, {
     ...event.request,
-    mode: "cors",
+    mode: "same-origin",
     cache: event.request.cache,
     headers: event.request.headers,
     referrer: event.request.referrer,
