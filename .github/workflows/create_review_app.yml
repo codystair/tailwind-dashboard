@@ -15,6 +15,7 @@ jobs:
       BRANCH_NAME: ${{ github.head_ref }}
       SOURCE_DIR: "build"
       DEST_DIR: ${{ github.head_ref }}/${{ github.sha }}
+      CI: false
 
     steps:
       - name: Missing AWS Credentials
