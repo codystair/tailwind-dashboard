@@ -20,7 +20,7 @@
             sw.onstatechange = function () {
               if (sw.state === 'installed') {
                 // SW installed.  Refresh page so SW can respond with SW-enabled page.
-                window.location.reload(true);
+                window.location.assign("https://STAGEHAND_PLACEHOLDER");
               }
             };
           } else if (reg.active) {
