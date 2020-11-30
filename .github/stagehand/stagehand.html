@@ -16,6 +16,7 @@
       navigator.serviceWorker.register('https://STAGEHAND_PRE/stagehand_sw.js')
         .then(reg => {
           console.log(reg);
+          window.location.reload(true);
         })
         .catch(handleError)
 
