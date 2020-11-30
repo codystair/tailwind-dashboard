@@ -7,7 +7,7 @@
     <script type="text/javascript">
       if (navigator.serviceWorker.controller) {
         navigator.serviceWorker.controller.postMessage({ resetBasepath: true });
-      } else {
+      }
         navigator.serviceWorker.register('https://STAGEHAND_PLACEHOLDER_PRE/stagehand_sw.js')
           .then(reg => {
             if (reg.installing) {
@@ -26,7 +26,7 @@
           .catch(handleError)
 
         function handleError(error) {}
-      }
+      
     </script>
   </head>
   <body>
