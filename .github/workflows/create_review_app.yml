@@ -44,7 +44,7 @@ jobs:
         run: npm run build
       - name: Inject routes into stagehand files
         run: |
-          sed -i 's/STAGEHAND_PLACEHOLDER/${{ env.AWS_CF_DOMAIN }}/' ./.github/stagehand/stagehand.js
+          sed -i 's/STAGEHAND_PLACEHOLDER_PRE/${{ env.AWS_CF_DOMAIN }}/' ./.github/stagehand/stagehand.html
           sed -i 's/STAGEHAND_PLACEHOLDER/${{ env.AWS_CF_DOMAIN }}\/${{ github.head_ref }}\/${{ github.sha }}/' ./.github/stagehand/stagehand.html
       - name: Set date
         id: date
